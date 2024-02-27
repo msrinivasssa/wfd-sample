@@ -1,0 +1,35 @@
+id: c11da476-cd0f-40fd-8607-dafc08a7ac5c
+timestamp: 2024-02-27T08:29:01.909Z
+source: TAP-GUI
+username: guest
+options:
+  projectName: where-for-dinner
+  workloadNamespace: my-apps
+  serviceNamespace: service-instances
+  workloadType: web
+  gatewayType: tapscg
+  msgBrokerType: rabbitmq
+  dynamicMsgBroker: true
+  msgbrokerName: msgbroker-where-for-dinner
+  dbType: mysql
+  cacheType: redisCache
+  enableSecurity: false
+  appWorkloadURL: http://where-for-dinner.tapfull.tapbkp.cloudfocused.in
+  ployglotWorkloads: false
+  nativeBuild: false
+  includeBuildToolWrapper: true
+  gatewayName: gateway-where-for-dinner
+  useCuratedAPIs: true
+  dynamicMsgBrokerClass: rabbitmq-unmanaged
+  numRabbitMQClusterNodes: 1
+  dynamicDatabase: true
+  dbName: db-where-for-dinner
+  dynamicDBClass: mysql-unmanaged
+  dynamicCache: true
+  cacheName: cache-where-for-dinner
+  dynamicCacheClass: redis-unmanaged
+accelerator:
+  name: where-for-dinner
+fragments:
+  - name: build-wrapper-maven
+  - name: tap-workload

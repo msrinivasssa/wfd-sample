@@ -1,0 +1,31 @@
+apiVersion: tanzu.vmware.com/v1
+kind: SpringCloudGatewayRouteConfig
+metadata:
+  name: ui-route-config
+  namespace: my-apps
+spec:
+  openapi:
+    generation:
+      enabled: false
+  routes:
+  - predicates:
+    - Path=/**
+    - Method=GET
+    order: 1000
+    filters:
+    - StripPrefix=0
+    tags:
+    - ui
+  service:
+    uri: http://where-for-dinner-ui.my-apps
+---
+apiVersion: tanzu.vmware.com/v1
+kind: SpringCloudGatewayMapping
+metadata:
+  name: ui-route-mapping
+  namespace: my-apps
+spec:
+  gatewayRef:
+    name: gateway-where-for-dinner
+  routeConfigRef:
+    name: ui-route-config
